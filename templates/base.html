@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jossytech</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav>
+      <div class="logo">JossyTech</div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a hfef="#home" class="active">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- hero section -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>
+          Precision <span class="highlight">Engineering</span> <bt></bt>You Can
+          Trust
+        </h1>
+        <p>
+          We specilaize in repairing machine parts, lathe turning, and
+          fabricating high quality machines and components. With skilled
+          engineers and modern tools. we deliver durable solutions that keep
+          your business moving.
+        </p>
+        <a href="#contact" class="btn">Request a quote </a>
+      </div>
+      <div class="hero-image">
+        <img
+          src="{% static 'hero.webp' %}"
+          alt="hero-image showing lathe machine "
+        />
+      </div>
+    </section>
+    <!-- <section class="partners">
+      <div class="partners-container">
+        <img class="slide" src="{% static '/images/krishat_logo.png' %}" />
+        <img class="slide" src="{% static '/images/zartech.png' %}" />
+      </div>
+    </section> -->
+
+    <!-- services -->
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <p>
+        We provide innovative and reliable engineering solutions tailored to
+        meet the unique needs of our clients. From design to execution, we
+        combine expertise and technology to deliver results that exceed
+        expectations.
+      </p>
+      <div class="services-grid">
+        {% for service in services %}
+        <div class="services-card">
+          <div class="services-img">
+            <img src="{{ service.image.url }}" alt="img1" />
+          </div>
+          <h2>{{ service.title }}</h2>
+          <p>{{ service.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- about us -->
+    <section class="about" id="about">
+      <div class="about-container">
+        <div class="about-img">
+          <img src="{% static '/images/about_us.jpg' %}" />
+        </div>
+        <div class="about-text">
+          <h2>About US</h2>
+          <p>
+            We are passionate about delivering quality turning services with
+            presision and care. with years of hands on experinece we provide
+            reliable solutions tailored to your needs.
+          </p>
+          <br />
+          <p>
+            Our mission is to combine skill modern tools, and dedixcation to
+            produce excellent results for every clinet that trusts us
+          </p>
+          <a href="#" class="about-btn">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-work" id="projects">
+      <div class="my-work-container">
+        <div class="my-work-text">
+          <h2>Our Works</h2>
+          <p>check out our recent works</p>
+        </div>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            {% for project in projects %}
+            <div class="swiper-slide">
+              <div class="card">
+                <img src="{{ project.image.url }}" />
+                <h2>{{ project.title }}</h2>
+                <p class="project-paragraph">{{ project.description }}</p>
+              </div>
+            </div>
+            {% endfor %}  
+          </div>
+      </div>
+    </section>
+
+    <!-- contact us -->
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <div class="contact-text">
+          <h2>Get in <span class="highlight">touch</span> with us</h2>
+          <div class="contact-details">
+            <div class="icon-container">
+              <i data-lucide="mail"></i>
+              <p>jossytech@gmail.com</p>
+            </div>
+
+            <div class="icon-container">
+              <i data-lucide="phone"></i>
+              <p>08034785503</p>
+            </div>
+            <div class="icon-container">
+              <i data-lucide="map-pin"></i>
+              <p>
+                Macaulay Complex Block C, No 19, Oppsite St. James Catholic Church
+            Complex, Oke Bola Ibadan
+              </p>
+            </div>
+          </div>
+          <div class="socials">
+            <a class="socials-container" href="www.facebook.com">
+              <i data-lucide="facebook"></i>
+            </a>
+            <a class="socials-container" href="www.facebook.com">
+              <i data-lucide="twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" method="post" action="">
+          {% csrf_token %}
+          {% if messages %}
+          {% for message in messages %}
+          <div class="{{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+          {% endif %}
+          <input id="name" type="text" name="name" placeholder="Name" />
+          <input id="email" type="email" name="email" placeholder="Email" />
+          <input id="message" type="text" name="message" placeholder="Your Message" />
+          <button type="submit">Send a Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="first-col">
+          <h3 class="logo">JossyTech</h3>
+          <p>
+            Macaulay Complex Block C, No 19, Oppsite St. James Catholic Church
+            Complex, Oke Bola Ibadan
+          </p>
+          <div class="socials">
+            <a class="socials-container" href="www.facebook.com">
+              <i data-lucide="facebook"></i>
+            </a>
+            <a class="socials-container" href="www.facebook.com">
+              <i data-lucide="twitter"></i>
+            </a>
+          </div>
+        </div>
+        <div class="second-col">
+          <h3 class="quick-links">Quick Links</h3>
+          <p>Home</p>
+          <p>Services</p>
+          <p>About Us</p>
+          <p>Projects</p>
+          <p>Contact</p>
+        </div>
+        <div class="third-col">
+          <h3>Contact Us</h3>
+          <div class="contact-details">
+            <div class="icon-container">
+              <i data-lucide="mail"></i>
+              <p>jossytech@gmail.com</p>
+            </div>
+
+            <div class="icon-container">
+              <i data-lucide="phone"></i>
+              <p>08034785503</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 JossyTech Multinational Ltd. All right reserved</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{% static 'script.js' %}"></script>
+  </body>
+</html>
