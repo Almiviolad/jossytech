@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-$ab_%(w3fy=yva)vsvw_%q3a_%qc^f&py-x$965^htcp_#x9p5
 DEBUG = False
 
 ALLOWED_HOSTS = ['jossytech.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://jossytech.onrender.com']
 
 # Application definition
 
@@ -119,7 +120,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [BASE_DIR / 'static']
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 # add STATIC_ROOT befor deployment and media configs
 
 # Default primary key field type
