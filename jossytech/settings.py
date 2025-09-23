@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$ab_%(w3fy=yva)vsvw_%q3a_%qc^f&py-x$965^htcp_#x9p5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jossytech.onrender.com']
+ALLOWED_HOSTS = ['jossytech.onrender.com', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://jossytech.onrender.com']
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,11 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mykelaloh@gmail.com'
 EMAIL_HOST_PASSWORD = 'hxyt izxw gdzy pinr'
+
+#configure storage
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NMAE': 'dhyet4v7f',
+    'API_KEY': '974439474272973',
+    'API_SECRET': 'CQRP5QK8tcTuf6t28IDs-vD_M6Y'
+}
