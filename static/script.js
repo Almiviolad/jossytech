@@ -2,7 +2,6 @@ const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 hamburger.addEventListener("click", function () {
   navLinks.classList.toggle("active");
-  console.log(navLinks);
   hamburger.classList.toggle("toggle");
 });
 
@@ -26,5 +25,6 @@ const swiper = new Swiper(".swiper", {
 document.querySelectorAll(".nav-links a").forEach((link) =>
   link.addEventListener("click", function () {
     navLinks.classList.remove("active");
+    hamburger.classList.toggle("toggle");
   })
 );

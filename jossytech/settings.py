@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-
+import cloudinary, cloudinary.api, cloudinary.uploader
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -121,8 +121,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [BASE_DIR / 'static']
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 # add STATIC_ROOT befor deployment and media configs
 
 # Default primary key field type
@@ -138,9 +136,6 @@ EMAIL_HOST_USER = 'mykelaloh@gmail.com'
 EMAIL_HOST_PASSWORD = 'hxyt izxw gdzy pinr'
 
 #configure storage
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-CLOUDINARY_STORAGE = {
-    'CLOUD_NMAE': 'dhyet4v7f',
-    'API_KEY': '974439474272973',
-    'API_SECRET': 'CQRP5QK8tcTuf6t28IDs-vD_M6Y'
-}
+cloudinary.config(cloud_name = 'dhyet4v7f', 
+                     api_key = '974439474272973', 
+                     api_secret = 'CQRP5QK8tcTuf6t28IDs-vD_M6Y')

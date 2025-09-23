@@ -17,11 +17,9 @@ nav {
   padding: 8px 32px;
   position: relative;
   color: white;
-  background-color: rgb(18, 17, 17);
-  font-size: small;
   width: 100%;
   max-width: 100%;
-  background-color: #09326f;
+  background-color: #0a0a0a;
   box-sizing: border-box;
 }
 
@@ -40,7 +38,7 @@ nav {
   font-weight: bold;
   transition: right 0.4s ease;
   gap: 20px;
-  background-color: #09326f;
+  background-color: #0a0a0a;
   z-index: 3;
 }
 .nav-links.active {
@@ -210,18 +208,30 @@ nav {
 /* services */
 section.services {
   text-align: center;
-  padding: 8% 10%;
+  padding: 8% 6%;
   color: #f0f0f0;
 }
 
 section h2 {
-  font-size: 49px;
-  margin-bottom: 16px;
+  font-size: 32px;
+  margin-bottom: 8px;
 }
 
 section p {
-  font-size: 24px;
-  margin-bottom: 16px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  section h2 {
+    font-size: 44px;
+    margin-bottom: 16px;
+  }
+
+  section p {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
 }
 .services h2 {
   color: #0d47a1;
